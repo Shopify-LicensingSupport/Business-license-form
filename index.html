@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Business License Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .form-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            border: 2px solid #e8f4f8;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #f8fbff 0%, #ffffff 100%);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: #4facfe;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4facfe;
+            display: inline-block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #34495e;
+            font-size: 1rem;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8f4f8;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .form-content {
+                padding: 20px;
+            }
+
+            .form-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>E-Commerce Business License Application</h1>
+            <p>For Shopify Store Owners</p>
+        </div>
+
+        <div class="form-content">
+            <form id="licenseForm">
+                <!-- Applicant Name Section -->
+                <div class="section">
+                    <h2 class="section-title">Applicant Name</h2>
+                    <div class="form-group">
+                        <label for="fullLegalName">Full Legal Name <span class="required">*</span></label>
+                        <input type="text" id="fullLegalName" name="fullLegalName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessName">Business Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+                </div>
+
+                <!-- Business Information Section -->
+                <div class="section">
+                    <h2 class="section-title">Business Information</h2>
+                    <div class="form-group">
+                        <label for="businessAddress">Business Address <span class="required">*</span></label>
+                        <textarea id="businessAddress" name="businessAddress" required placeholder="Include street address, city, state, zip code"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessStructure">Business Structure <span class="required">*</span></label>
+                        <select id="businessStructure" name="businessStructure" required>
+                            <option value="">Select Business Structure</option>
+                            <option value="sole-proprietorship">Sole Proprietorship</option>
+                            <option value="llc">Limited Liability Company (LLC)</option>
+                            <option value="corporation">Corporation</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="s-corporation">S-Corporation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessRegNumber">Business Registration Number</label>
+                        <input type="text" id="businessRegNumber" name="businessRegNumber" placeholder="If applicable">
+                    </div>
+                    <div class="form-group">
+                        <label for="productNiche">Product Niche <span class="required">*</span></label>
+                        <select id="productNiche" name="productNiche" required>
+                            <option value="">Select Product Niche</option>
+                            <option value="fashion">Fashion & Apparel</option>
+                            <option value="technology">Technology & Electronics</option>
+                            <option value="food-beverage">Food & Beverage</option>
+                            <option value="health-beauty">Health & Beauty</option>
+                            <option value="home-garden">Home & Garden</option>
+                            <option value="sports-outdoors">Sports & Outdoors</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="books-media">Books & Media</option>
+                            <option value="toys-games">Toys & Games</option>
+                            <option value="jewelry-accessories">Jewelry & Accessories</option>
+                            <option value="pet-supplies">Pet Supplies</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="section">
+                    <h2 class="section-title">Contact Information</h2>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="(000) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Email Address <span class="required">*</span></label>
+                        <input type="email" id="emailAddress" name="emailAddress" required placeholder="your@email.com">
+                    </div>
+                </div>
+
+                <!-- Trademark Information Section -->
+                <div class="section">
+                    <h2 class="section-title">Trademark Information</h2>
+                    <div class="form-group">
+                        <label for="trademarkName">Trademark Name/Logo/Slogan</label>
+                        <input type="text" id="trademarkName" name="trademarkName" placeholder="Enter trademark details">
+                    </div>
+                    <div class="form-group">
+                        <label for="trademarkDescription">Description of the Trademark</label>
+                        <select id="trademarkDescription" name="trademarkDescription">
+                            <option value="">Select Trademark Type</option>
+                            <option value="word-mark">Word Mark</option>
+                            <option value="logo-mark">Logo Mark</option>
+                            <option value="combined-mark">Combined Mark (Word + Logo)</option>
+                            <option value="slogan">Slogan</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodsServices">List of Goods and Services (using Nice Classification)</label>
+                        <textarea id="goodsServices" name="goodsServices" placeholder="Describe the goods and services covered by your trademark using Nice Classification categories"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstUseDate">Date of First Use of the Trademark</label>
+                        <input type="date" id="firstUseDate" name="firstUseDate">
+                    </div>
+                </div>
+
+                <!-- Agreement Section -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">I certify that all information provided in this application is true and accurate to the best of my knowledge. I understand that providing false information may result in the denial of my application. <span class="required">*</span></label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('licenseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get all form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simple validation
+            const requiredFields = ['fullLegalName', 'businessName', 'businessAddress', 'businessStructure', 'productNiche', 'phoneNumber', 'emailAddress', 'agreement'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!data[field] || (field === 'agreement' && !document.getElementById(field).checked)) {
+                    isValid = false;
+                    document.getElementById(field).style.borderColor = '#e74c3c';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                alert('Application submitted successfully! You will receive a confirmation email shortly.');
+                
+                // In a real application, you would send this data to your server
+                console.log('Form Data:', data);
+                
+                // Reset form
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Remove error styling when user starts typing
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.style.borderColor = '#e1e8ed';
+            });
+        });
+    </script>
+</body>
+</html>
