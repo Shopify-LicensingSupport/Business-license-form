@@ -197,17 +197,17 @@
         </div>
 
         <div class="form-content">
-            <form id="licenseForm">
+            <form id="licenseForm" action="https://docs.google.com/forms/d/e/1FAIpQLScIAhOYzKHmB-i_kxHJ-ujj6JEAzwKcgkW-kID3kaRM5R_-Vw/formResponse" method="POST" target="hidden_iframe">
                 <!-- Applicant Name Section -->
                 <div class="section">
                     <h2 class="section-title">Applicant Name</h2>
                     <div class="form-group">
                         <label for="fullLegalName">Full Legal Name <span class="required">*</span></label>
-                        <input type="text" id="fullLegalName" name="fullLegalName" required>
+                        <input type="text" id="fullLegalName" name="entry.2005620554" required>
                     </div>
                     <div class="form-group">
                         <label for="businessName">Business Name <span class="required">*</span></label>
-                        <input type="text" id="businessName" name="businessName" required>
+                        <input type="text" id="businessName" name="entry.1984970264" required>
                     </div>
                 </div>
 
@@ -216,11 +216,11 @@
                     <h2 class="section-title">Business Information</h2>
                     <div class="form-group">
                         <label for="businessAddress">Business Address <span class="required">*</span></label>
-                        <textarea id="businessAddress" name="businessAddress" required placeholder="Include street address, city, state, zip code"></textarea>
+                        <textarea id="businessAddress" name="entry.1065046570" required placeholder="Include street address, city, state, zip code"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="businessStructure">Business Structure <span class="required">*</span></label>
-                        <select id="businessStructure" name="businessStructure" required>
+                        <select id="businessStructure" name="entry.1166974658" required>
                             <option value="">Select Business Structure</option>
                             <option value="sole-proprietorship">Sole Proprietorship</option>
                             <option value="llc">Limited Liability Company (LLC)</option>
@@ -232,11 +232,11 @@
                     </div>
                     <div class="form-group">
                         <label for="businessRegNumber">Business Registration Number</label>
-                        <input type="text" id="businessRegNumber" name="businessRegNumber" placeholder="If applicable">
+                        <input type="text" id="businessRegNumber" name="entry.1854970624" placeholder="If applicable">
                     </div>
                     <div class="form-group">
                         <label for="productNiche">Product Niche <span class="required">*</span></label>
-                        <select id="productNiche" name="productNiche" required>
+                        <select id="productNiche" name="entry.1617994532" required>
                             <option value="">Select Product Niche</option>
                             <option value="fashion">Fashion & Apparel</option>
                             <option value="technology">Technology & Electronics</option>
@@ -259,11 +259,11 @@
                     <h2 class="section-title">Contact Information</h2>
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="(000) 000-0000">
+                        <input type="tel" id="phoneNumber" name="entry.1387224853" required placeholder="(000) 000-0000">
                     </div>
                     <div class="form-group">
                         <label for="emailAddress">Email Address <span class="required">*</span></label>
-                        <input type="email" id="emailAddress" name="emailAddress" required placeholder="your@email.com">
+                        <input type="email" id="emailAddress" name="entry.1323598739" required placeholder="your@email.com">
                     </div>
                 </div>
 
@@ -272,11 +272,11 @@
                     <h2 class="section-title">Trademark Information</h2>
                     <div class="form-group">
                         <label for="trademarkName">Trademark Name/Logo/Slogan</label>
-                        <input type="text" id="trademarkName" name="trademarkName" placeholder="Enter trademark details">
+                        <input type="text" id="trademarkName" name="entry.1086382697" placeholder="Enter trademark details">
                     </div>
                     <div class="form-group">
                         <label for="trademarkDescription">Description of the Trademark</label>
-                        <select id="trademarkDescription" name="trademarkDescription">
+                        <select id="trademarkDescription" name="entry.1317946122">
                             <option value="">Select Trademark Type</option>
                             <option value="word-mark">Word Mark</option>
                             <option value="logo-mark">Logo Mark</option>
@@ -287,11 +287,11 @@
                     </div>
                     <div class="form-group">
                         <label for="goodsServices">List of Goods and Services (using Nice Classification)</label>
-                        <textarea id="goodsServices" name="goodsServices" placeholder="Describe the goods and services covered by your trademark using Nice Classification categories"></textarea>
+                        <textarea id="goodsServices" name="entry.839337160" placeholder="Describe the goods and services covered by your trademark using Nice Classification categories"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="firstUseDate">Date of First Use of the Trademark</label>
-                        <input type="date" id="firstUseDate" name="firstUseDate">
+                        <input type="date" id="firstUseDate" name="entry.XXXXXXXXX">
                     </div>
                 </div>
 
@@ -306,42 +306,48 @@
                     <button type="submit" class="submit-btn">Submit Application</button>
                 </div>
             </form>
+            
+            <!-- Hidden iframe for form submission -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='#success';}"></iframe>
         </div>
     </div>
 
     <script>
+        let submitted = false;
+        
         document.getElementById('licenseForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get all form data
-            const formData = new FormData(this);
-            const data = {};
-            
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            
             // Simple validation
-            const requiredFields = ['fullLegalName', 'businessName', 'businessAddress', 'businessStructure', 'productNiche', 'phoneNumber', 'emailAddress', 'agreement'];
+            const requiredFields = ['entry.2005620554', 'entry.1984970264', 'entry.1065046570', 'entry.1166974658', 'entry.1617994532', 'entry.1387224853', 'entry.1323598739'];
             let isValid = true;
             
             requiredFields.forEach(field => {
-                if (!data[field] || (field === 'agreement' && !document.getElementById(field).checked)) {
+                const element = document.querySelector(`[name="${field}"]`);
+                if (!element || !element.value.trim()) {
                     isValid = false;
-                    document.getElementById(field).style.borderColor = '#e74c3c';
+                    if (element) {
+                        element.style.borderColor = '#e74c3c';
+                    }
                 }
             });
             
+            // Check agreement checkbox
+            const agreement = document.getElementById('agreement');
+            if (!agreement.checked) {
+                isValid = false;
+                agreement.style.outline = '2px solid #e74c3c';
+            }
+            
             if (isValid) {
-                // Show success message
-                alert('Application submitted successfully! You will receive a confirmation email shortly.');
-                
-                // In a real application, you would send this data to your server
-                console.log('Form Data:', data);
-                
-                // Reset form
-                this.reset();
+                submitted = true;
+                // Show success message immediately
+                setTimeout(() => {
+                    alert('Application submitted successfully! You will receive a confirmation email shortly.');
+                    // Reset form
+                    this.reset();
+                    submitted = false;
+                }, 1000);
             } else {
+                e.preventDefault();
                 alert('Please fill in all required fields.');
             }
         });
@@ -350,6 +356,7 @@
         document.querySelectorAll('input, select, textarea').forEach(field => {
             field.addEventListener('input', function() {
                 this.style.borderColor = '#e1e8ed';
+                this.style.outline = 'none';
             });
         });
     </script>
